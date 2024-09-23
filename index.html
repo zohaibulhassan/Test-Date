@@ -11,11 +11,11 @@
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
 
             // Get the current UTC time using Luxon
-            const utcDateTime = moment().utc(); // Current UTC time
+            const utcDateTime = moment().utc().format(); // Current UTC time
             const utcTime = utcDateTime.toString(); // Convert to string for display
 
             // Display the UTC time
-            document.getElementById('globalTime').innerHTML = 'UTC Time: ' + utcTime;
+            document.getElementById('globalTime').innerHTML = 'UTC Time: ' + utcDateTime;
         }
 
         // Update time every second
@@ -25,5 +25,6 @@
 <body>
     <h1 id="systemTime">System Time: </h1>
     <h1 id="globalTime">UTC Time: </h1>
+    z
 </body>
 </html>
