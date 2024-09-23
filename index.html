@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTC and System Time</title>
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.0/build/luxon.min.js"></script>
-
     <script>
         function updateTime() {
+            // Get the system's local time
             const systemTime = new Date().toString();
-
-            const globalTime = luxon.DateTime.utc().toString();;
-
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
 
-            document.getElementById('globalTime').innerHTML = 'UTC Time: ' + globalTime;
+            // Get the current UTC time using Luxon
+            const utcTime = luxon.DateTime.utc().toString(); // Current UTC time
+            document.getElementById('globalTime').innerHTML = 'UTC Time: ' + utcTime;
         }
 
         // Update time every second
