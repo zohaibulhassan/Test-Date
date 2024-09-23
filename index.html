@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTC and System Time</title>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.0/build/luxon.min.js"></script>
     <script>
         function updateTime() {
             // Get the system's local time
@@ -12,7 +11,7 @@
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
 
             // Get the current UTC time using Luxon
-            const utcDateTime = luxon.DateTime.utc(); // Current UTC time
+            const utcDateTime = moment().utc(); // Current UTC time
             const utcTime = utcDateTime.toString(); // Convert to string for display
 
             // Display the UTC time
