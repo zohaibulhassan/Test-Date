@@ -6,17 +6,20 @@
     <title>UTC and System Time</title>
     <script>
         function updateTime() {
-            // Get the system's local time (it may vary if the system time is incorrect)
+            // Get the system's local time
             const systemTime = new Date().toString();
 
-            // Get the accurate UTC time directly
+            // Get the accurate UTC time (ignore device local time)
             const now = new Date();
-            const globalTime = now.toUTCString(); // Accurate global UTC time
+            const utcDate = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
 
-            // Display system time (may vary based on device settings)
+            // Format UTC time manually
+            const globalTime = utcDate.toUTCString();
+
+            // Display system time
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
 
-            // Display accurate UTC time
+            // Display UTC time (accurate, without relying on local system date)
             document.getElementById('globalTime').innerHTML = 'UTC Time: ' + globalTime;
         }
 
