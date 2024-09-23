@@ -12,7 +12,10 @@
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
 
             // Get the current UTC time using Luxon
-            const utcTime = luxon.DateTime.utc().toString(); // Current UTC time
+            const utcDateTime = luxon.DateTime.utc(); // Current UTC time
+            const utcTime = utcDateTime.toString(); // Convert to string for display
+
+            // Display the UTC time
             document.getElementById('globalTime').innerHTML = 'UTC Time: ' + utcTime;
         }
 
@@ -23,6 +26,5 @@
 <body>
     <h1 id="systemTime">System Time: </h1>
     <h1 id="globalTime">UTC Time: </h1>
-    z
 </body>
 </html>
