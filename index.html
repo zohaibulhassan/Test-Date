@@ -10,8 +10,7 @@
 
         function updateTime() {
             const systemTime =  new Date().toString();
-            const now = new Date();
-            const utcTime = now.toUTCString(); 
+            const utcTime = new Intl.DateTimeFormat("el", options).format(date); 
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
             document.getElementById('utcTime').innerHTML = 'UTC Time: ' + utcTime;
 
