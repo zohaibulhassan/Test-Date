@@ -8,19 +8,12 @@
 
     <script>
         function updateTime() {
-            // Get the system's local time
             const systemTime = new Date().toString();
 
-            // Get the accurate UTC time (ignore device local time)
-            const utcDate = luxon.DateTime.fromISO(data.utc_datetime).toUTC().toString();;
+            const globalTime = luxon.DateTime.utc().toString();;
 
-            // Format UTC time manually
-            const globalTime = utcDate.toUTCString();
-
-            // Display system time
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
 
-            // Display UTC time (accurate, without relying on local system date)
             document.getElementById('globalTime').innerHTML = 'UTC Time: ' + globalTime;
         }
 
@@ -31,5 +24,6 @@
 <body>
     <h1 id="systemTime">System Time: </h1>
     <h1 id="globalTime">UTC Time: </h1>
+    z
 </body>
 </html>
