@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTC and System Time</title>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.0/build/luxon.min.js"></script>
+
     <script>
         function updateTime() {
             // Get the system's local time
             const systemTime = new Date().toString();
 
             // Get the accurate UTC time (ignore device local time)
-            const now = new Date();
-            const utcDate = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+            const utcDate = luxon.DateTime.fromISO(data.utc_datetime).toUTC().toString();;
 
             // Format UTC time manually
             const globalTime = utcDate.toUTCString();
