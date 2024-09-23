@@ -3,31 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTC and System Time with Refresh Counter</title>
+    <title>UTC and System Time</title>
     <script>
-        let refreshCount = 0;
-        let refreshStarted = true;
-
         function updateTime() {
-            const systemTime =  new Date().toString();
-            const utcTime = new Intl.DateTimeFormat("el", options).format(date); 
+            const systemTime = new Date().toString();
+            const now = new Date();
+            const globalTime = now.toUTCString();
+            
             document.getElementById('systemTime').innerHTML = 'System Time: ' + systemTime;
-            document.getElementById('utcTime').innerHTML = 'UTC Time: ' + utcTime;
-
-            setTimeout(() => {
-                refreshStarted = true;
-                const refreshInterval = setInterval(() => {
-                    document.getElementById('refresh').innerHTML = 'Refresh: ' + refreshCount;
-                    
-                   
-                }, 1000);
-            }, 2000);
+            document.getElementById('globalTime').innerHTML = 'UTC Time: ' + globalTime;
         }
         setInterval(updateTime, 1000);
     </script>
 </head>
 <body>
     <h1 id="systemTime">System Time: </h1>
-    <h1 id="utcTime">UTC Time: </h1>
+    <h1 id="globalTime">UTC Time: </h1>
 </body>
 </html>
